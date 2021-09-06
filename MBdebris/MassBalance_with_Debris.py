@@ -45,11 +45,11 @@ debris_fp = '/home/users/smojtabavi/DATA/hd_glob/' # this needs to be changed if
 if not 'debris_hd' in cfg.BASENAMES:
     cfg.BASENAMES['debris_hd'] = ('debris_hd.tif', 'Raster of debris thickness data')
 if not 'debris_ed' in cfg.BASENAMES:
-    cfg.BASENAMES['debris_ed'] = ('debris_ed.tif', 'Raster of debris enhancement factor data')
+    cfg.BASENAMES['debris_ed'] = ('debris_ed.tif', 'Raster of debris correction factor data')
 
 @entity_task(log, writes=['debris_hd', 'debris_ed'])
 def debris_to_gdir(gdir, debris_dir=debris_fp, add_to_gridded=True, hd_max=5, hd_min=0, ed_max=10, ed_min=0):
-    """Reproject the debris thickness and enhancement factor files to the given glacier directory
+    """Reproject the debris thickness and correction factor files to the given glacier directory
     
     Variables are exported as new files in the glacier directory.
     Reprojecting debris data from one map proj to another is done. 
@@ -101,7 +101,7 @@ def debris_to_gdir(gdir, debris_dir=debris_fp, add_to_gridded=True, hd_max=5, hd
                 v.long_name = 'Debris thicknness'
                 v[:] = data
         
-    # If debris enhancement factor data exists, then write to glacier directory
+    # If debris correction factor data exists, then write to glacier directory
     if os.path.exists(ed_dir + glac_str_nolead + '_meltfactor.tif'):
         ed_fn = ed_dir + glac_str_nolead + '_meltfactor.tif'
     elif os.path.exists(ed_dir + glac_str_nolead + '_meltfactor_extrap.tif'):
@@ -129,7 +129,7 @@ def debris_to_gdir(gdir, debris_dir=debris_fp, add_to_gridded=True, hd_max=5, hd
                 else:
                     v = nc.createVariable(vn, 'f8', ('y', 'x', ), zlib=True)
                 v.units = '-'
-                v.long_name = 'Debris enhancement factor'
+                v.long_name = 'Debris correction factor'
                 v[:] = data
 
 # Here, I have combined two tasks from OGGM centerline "elevation_band_flowline" and "fixed_dx_elevation_band_flowline"
@@ -934,13 +934,13 @@ class PastMassBalance(MassBalanceModel):
                                                                    year)
 
         fls_d = self.fls_d 
-        d = fls_d.debris_ed # debris enhancement factor
+        d = fls_d.debris_ed # debris correction factor
         xx = len(d)
         dd = np.atleast_2d(d).repeat(12,  0)
         c = np.transpose(dd)
         h = np.ones((xx, 12)) 
         v = h * c
-        mu_star_debris = v * self.mu_star # elevation-dependent temperature sensitivity parameter with debris enhancement factor
+        mu_star_debris = v * self.mu_star # elevation-dependent temperature sensitivity parameter with debris correction factor
         
                                                                                                                                                                               
         mb_annual = np.sum(prcpsol - mu_star_debris * temp2dformelt, axis=1)                                                                                                               

@@ -75,7 +75,7 @@ The MBsandbox package can be imported in python by
 
 - ***how_to_use_MBdebris.ipynb***: shows mb with debri cover for different glaciers (Hintereisferner, Baltoro and Tipra glaciers)
     - plot debris thickness
-    - plot debris enhancement factor
+    - plot debris correction factor
     - plot mass balance as a function of elevation (with and without debris)
     - plot MSB_specific_mb (with and without debris)
     - plot specific MB with reference mass-balance (WGMS)
