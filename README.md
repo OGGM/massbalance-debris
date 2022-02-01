@@ -21,8 +21,6 @@ At the moment these options are available:
 This graphic was designed for the paper from [Nicholson et al., 2021](https://doi.org/10.3389/feart.2021.662695).
 It illustrates the processes of debris flux through a mountain glacier.
 
-**Download**: [zip file](//images/glacier_debriscovered.zip)
-
 ### Image with english labels
 
 ![](/images/glacier_debriscovered_englishlabels.png)
