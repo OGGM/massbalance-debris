@@ -14,6 +14,25 @@ At the moment these options are available:
 - to compute mass balance with debris on the elevation band flowline (Huss)
 - to compute specific mass-balance with debris
 
+## An introduction to debris-covered glaciers
+
+**Author**: Lindsey Nicholson (adapted from Anne Maussion, [Atelier les Gros yeux](http://atelierlesgrosyeux.com/))
+
+This graphic was designed for the paper from [Nicholson et al., 2021](https://doi.org/10.3389/feart.2021.662695).
+It illustrates the processes of debris flux through a mountain glacier.
+
+**Download**: [zip file](//images/glacier_debriscovered.zip)
+
+### Image with english labels
+
+![](/images/glacier_debriscovered_englishlabels.png)
+
+Rock debris from the surrounding landscape is transported by glacier ice motion,
+and some glaciers can develop into debris covered glaciers, with a layer of
+rock rubble covering part of their ablation zone. This debris cover alters
+the ablation rate of the glacier, and therefore its overall interaction with
+a forcing climate.
+
 # How to install/use !
 <!-- structure as in https://github.com/fmaussion/scispack and oggm/oggm -->
 the newest OGGM developer version has to be installed in order that MBdebris works:
